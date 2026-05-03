@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baseline's Pub — South Surrey & White Rock, BC</title>
+<meta name="description" content="Baseline's Pub — your neighbourhood pub in South Surrey. Pool tables, dartboards, 16 taps, daily specials, and great food from the Sandcastle Grill kitchen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&family=Oswald:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:      #1a1108;
+  --bg2:     #221609;
+  --bg3:     #2a1c0c;
+  --paper:   #e8d9b8;
+  --paper2:  #d4c49e;
+  --rust:    #b84a1e;
+  --rust2:   #d45a28;
+  --gold:    #c8940c;
+  --gold2:   #e0aa18;
+  --cream:   #f2e6cc;
+  --muted:   #9a8a6a;
+  --border:  #3a2810;
+  --text:    #c8b890;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Lato',sans-serif;line-height:1.6;overflow-x:hidden;}
+
+/* noise overlay on everything */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;opacity:0.35;}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--bg);border-bottom:3px solid var(--gold);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:76px;}
+.nav-logo img{height:60px;width:auto;display:block;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-family:'Oswald',sans-serif;font-weight:500;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold2);}
+.nav-cta{border:2px solid var(--rust);color:var(--rust) !important;padding:0.35rem 1rem;}
+.nav-cta:hover{background:var(--rust) !important;color:var(--cream) !important;}
+
+/* ─── HERO ─── */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:6rem 2rem 4rem;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:url('https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/wide_bar_shot.jpg');background-size:cover;background-position:center;z-index:0;filter:brightness(0.12) saturate(0.3) sepia(0.6);}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(26,17,8,0.3) 0%,rgba(26,17,8,0.85) 100%);z-index:1;}
+/* decorative border frame */
+.hero-frame{position:absolute;inset:1.5rem;border:2px solid rgba(200,148,12,0.25);z-index:2;pointer-events:none;}
+.hero-frame::before{content:'';position:absolute;inset:6px;border:1px solid rgba(200,148,12,0.12);}
+.hero-content{position:relative;z-index:3;max-width:780px;}
+.hero-badge{display:inline-block;border:2px solid var(--gold);padding:0.35rem 1.5rem;font-family:'Oswald',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;}
+.hero h1{font-family:'Rye',cursive;font-size:clamp(2.8rem,9vw,8rem);line-height:0.95;color:var(--cream);margin-bottom:0.5rem;text-shadow:0 0 60px rgba(200,148,12,0.3);}
+.hero-rule{display:flex;align-items:center;gap:1rem;justify-content:center;margin:1.5rem 0;}
+.hero-rule::before,.hero-rule::after{content:'';flex:1;max-width:120px;height:1px;background:linear-gradient(to right,transparent,var(--gold));}
+.hero-rule::after{background:linear-gradient(to left,transparent,var(--gold));}
+.hero-rule-icon{color:var(--gold);font-size:1rem;}
+.hero-sub{font-family:'Special Elite',cursive;font-size:clamp(0.85rem,2vw,1.1rem);color:var(--muted);letter-spacing:0.12em;margin-bottom:2.5rem;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.btn-rust{background:var(--rust);color:var(--cream);padding:0.9rem 2.2rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;border:2px solid var(--rust);transition:all 0.2s;display:inline-block;}
+.btn-rust:hover{background:var(--rust2);border-color:var(--rust2);}
+.btn-outline{border:2px solid var(--gold);color:var(--gold);padding:0.9rem 2.2rem;font-family:'Oswald',sans-serif;font-weight:600;font-size:0.82rem;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.2s;display:inline-block;}
+.btn-outline:hover{background:var(--gold);color:var(--bg);}
+
+/* ─── MARQUEE STRIP ─── */
+.marquee-wrap{background:var(--rust);border-top:2px solid var(--rust2);border-bottom:2px solid var(--bg);overflow:hidden;padding:0.6rem 0;}
+.marquee-inner{display:flex;gap:0;animation:marquee 25s linear infinite;white-space:nowrap;}
+.marquee-inner span{font-family:'Oswald',sans-serif;font-weight:600;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--cream);padding:0 2rem;flex-shrink:0;display:flex;align-items:center;gap:0.75rem;}
+.marquee-inner span::after{content:'✦';color:rgba(255,255,255,0.5);}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── HORIZONTAL PHOTO SCROLL ─── */
+.photo-scroll-wrap{background:var(--bg2);padding:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.photo-scroll-label{font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);padding:0 2.5rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.photo-scroll-label::before{content:'';width:2rem;height:1px;background:var(--gold);}
+.photo-scroll{display:flex;gap:12px;overflow-x:auto;padding:0 2.5rem;scrollbar-width:thin;scrollbar-color:var(--border) transparent;-webkit-overflow-scrolling:touch;}
+.photo-scroll::-webkit-scrollbar{height:4px;}
+.photo-scroll::-webkit-scrollbar-track{background:transparent;}
+.photo-scroll::-webkit-scrollbar-thumb{background:var(--border);}
+.photo-scroll-item{flex-shrink:0;width:320px;height:220px;overflow:hidden;position:relative;border:2px solid var(--border);}
+.photo-scroll-item img{width:100%;height:100%;object-fit:cover;filter:brightness(0.65) saturate(0.5) sepia(0.4) contrast(1.2);transition:filter 0.4s,transform 0.5s;display:block;}
+.photo-scroll-item:hover img{filter:brightness(0.8) saturate(0.65) sepia(0.3) contrast(1.1);transform:scale(1.05);}
+
+/* ─── ABOUT — OFFSET GRID ─── */
+.about{padding:5rem 2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--bg2);}
+.about-img-wrap{position:relative;}
+.about-img-wrap img{width:100%;height:100%;min-height:400px;object-fit:cover;filter:brightness(0.55) saturate(0.5) sepia(0.35) contrast(1.2);display:block;border:3px solid var(--border);}
+.about-img-wrap::after{content:'EST. 2010';position:absolute;bottom:1.5rem;right:-1.5rem;background:var(--rust);color:var(--cream);font-family:'Rye',cursive;font-size:0.7rem;padding:0.5rem 1rem;letter-spacing:0.1em;transform:rotate(-2deg);z-index:2;}
+.about-copy{background:var(--bg3);padding:4rem 3.5rem;border:1px solid var(--border);border-left:none;display:flex;flex-direction:column;justify-content:center;}
+.sec-badge{display:inline-block;font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:1px solid var(--border);}
+.about-copy h2{font-family:'Rye',cursive;font-size:clamp(1.6rem,3vw,2.6rem);color:var(--cream);line-height:1.15;margin-bottom:1.25rem;}
+.about-copy p{font-size:0.93rem;color:var(--muted);line-height:1.85;margin-bottom:0.85rem;font-family:'Special Elite',cursive;}
+.about-copy p strong{color:var(--cream);font-family:'Lato',sans-serif;}
+.chalkboard{background:rgba(0,0,0,0.4);border:2px solid var(--border);padding:1.5rem;margin-top:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.chalk-item{text-align:center;}
+.chalk-num{font-family:'Rye',cursive;font-size:2rem;color:var(--gold);line-height:1;}
+.chalk-lbl{font-family:'Oswald',sans-serif;font-size:0.62rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:0.2rem;}
+
+/* ─── SECTION COMMONS ─── */
+section{padding:5rem 2.5rem;}
+.sec-title-wrap{margin-bottom:3rem;text-align:center;}
+.sec-title-wrap h2{font-family:'Rye',cursive;font-size:clamp(1.8rem,4vw,3.2rem);color:var(--cream);line-height:1.1;margin-top:0.5rem;}
+.sec-rule{display:flex;align-items:center;gap:1rem;margin-top:1rem;}
+.sec-rule::before,.sec-rule::after{content:'';flex:1;height:1px;background:var(--border);}
+.sec-rule-dot{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+.divider{height:1px;background:var(--border);margin:0 2.5rem;}
+
+/* ─── EVENTS — LARGE CARDS ─── */
+#events{background:var(--bg);}
+.events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:2rem;}
+.event-card{position:relative;overflow:hidden;border:2px solid var(--border);}
+.ec-img{height:240px;overflow:hidden;position:relative;}
+.ec-img img{width:100%;height:100%;object-fit:cover;filter:brightness(0.45) saturate(0.45) sepia(0.4) contrast(1.2);transition:filter 0.4s,transform 0.5s;display:block;}
+.event-card:hover .ec-img img{filter:brightness(0.65) saturate(0.6) sepia(0.3);transform:scale(1.05);}
+.ec-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,17,8,1) 0%,transparent 60%);}
+.ec-date-badge{position:absolute;top:1rem;left:1rem;background:var(--rust);color:var(--cream);text-align:center;padding:0.4rem 0.75rem;z-index:2;}
+.ec-date-badge .month{display:block;font-family:'Oswald',sans-serif;font-size:0.55rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;}
+.ec-date-badge .day{display:block;font-family:'Rye',cursive;font-size:2rem;line-height:1;}
+.ec-body{padding:1.5rem;background:var(--bg3);}
+.ec-cat{font-family:'Oswald',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;}
+.ec-title{font-family:'Special Elite',cursive;font-size:1.1rem;color:var(--cream);line-height:1.3;margin-bottom:0.5rem;}
+.ec-desc{font-size:0.85rem;color:var(--muted);line-height:1.65;}
+
+/* ─── SPECIALS ─── */
+#specials{background:var(--bg2);}
+.day-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:2.5rem;justify-content:center;}
+.day-tab{background:transparent;border:2px solid var(--border);color:var(--muted);padding:0.6rem 1.2rem;font-family:'Oswald',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.day-tab:hover{border-color:var(--gold);color:var(--gold);}
+.day-tab.active{background:var(--rust);border-color:var(--rust);color:var(--cream);}
+.specials-panel{display:none;}
+.specials-panel.active{display:block;}
+.specials-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;}
+.sc{background:var(--bg3);border:2px solid var(--border);padding:2rem;position:relative;}
+.sc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--rust);}
+.sc-top{display:flex;gap:1rem;align-items:flex-start;margin-bottom:0.75rem;}
+.sc-icon{background:var(--rust);color:var(--cream);width:46px;height:46px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.3rem;}
+.sc-name{font-family:'Special Elite',cursive;font-size:1.2rem;color:var(--cream);margin-bottom:0.2rem;}
+.sc-price{font-family:'Oswald',sans-serif;font-size:0.9rem;font-weight:700;color:var(--gold);letter-spacing:0.08em;}
+.sc-desc{font-size:0.875rem;color:var(--muted);line-height:1.7;}
+
+/* ─── MENU ─── */
+#menu{background:var(--bg);}
+.menu-note{background:var(--bg3);border-left:4px solid var(--rust);padding:1rem 1.5rem;margin-bottom:2.5rem;font-size:0.85rem;color:var(--muted);font-family:'Special Elite',cursive;}
+.menu-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:2.5rem;justify-content:center;}
+.menu-tab{background:transparent;border:2px solid var(--border);color:var(--muted);padding:0.65rem 1.3rem;font-family:'Oswald',sans-serif;font-size:0.75rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;transition:all 0.2s;}
+.menu-tab:hover{border-color:var(--gold);color:var(--gold);}
+.menu-tab.active{background:var(--rust);border-color:var(--rust);color:var(--cream);}
+.menu-section{display:none;}
+.menu-section.active{display:block;}
+.mcat-title{font-family:'Rye',cursive;font-size:1.4rem;color:var(--gold);margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--border);}
+.mcat{margin-bottom:3rem;}
+.menu-items{display:flex;flex-direction:column;}
+.menu-item{display:flex;justify-content:space-between;gap:1.5rem;padding:1rem 0;border-bottom:1px dashed var(--border);}
+.menu-item:last-child{border-bottom:none;}
+.mi-name{font-family:'Special Elite',cursive;font-size:0.95rem;color:var(--cream);margin-bottom:0.2rem;}
+.mi-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;}
+.mi-price{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:700;color:var(--gold);white-space:nowrap;flex-shrink:0;}
+
+/* ─── LOCATION ─── */
+#location{background:var(--bg2);}
+.loc-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;}
+.loc-block{margin-bottom:2.5rem;}
+.loc-label{font-family:'Oswald',sans-serif;font-size:0.65rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--rust);margin-bottom:0.75rem;}
+.loc-text{font-size:0.9rem;color:var(--muted);line-height:1.9;font-family:'Special Elite',cursive;}
+.loc-text a{color:var(--cream);text-decoration:none;transition:color 0.2s;}
+.loc-text a:hover{color:var(--gold);}
+.hours-tbl{display:grid;grid-template-columns:auto 1fr;gap:0.5rem 1.5rem;}
+.hours-day{font-family:'Oswald',sans-serif;font-size:0.8rem;font-weight:600;color:var(--cream);letter-spacing:0.05em;}
+.hours-time{font-size:0.82rem;color:var(--muted);}
+.map-wrap{overflow:hidden;border:3px solid var(--border);height:420px;}
+.map-wrap iframe{width:100%;height:100%;border:0;display:block;filter:grayscale(80%) sepia(20%) contrast(0.85);}
+
+/* ─── FOOTER ─── */
+footer{background:var(--bg);border-top:3px solid var(--gold);padding:3.5rem 2.5rem;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+footer img{height:72px;width:auto;opacity:0.65;}
+.footer-rule{display:flex;align-items:center;gap:1rem;width:100%;max-width:400px;}
+.footer-rule::before,.footer-rule::after{content:'';flex:1;height:1px;background:var(--border);}
+.footer-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);}
+.footer-links{list-style:none;display:flex;gap:2rem;flex-wrap:wrap;justify-content:center;}
+.footer-links a{color:var(--muted);text-decoration:none;font-family:'Oswald',sans-serif;font-size:0.7rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold);}
+.footer-copy{font-family:'Special Elite',cursive;font-size:0.75rem;color:var(--muted);}
+
+/* ─── MOBILE ─── */
+@media(max-width:768px){
+  nav{padding:0 1.25rem;height:64px;}
+  nav img{height:50px;}
+  .nav-links{display:none;}
+  .hero{padding:5rem 1.25rem 4rem;}
+  .hero-frame{inset:0.75rem;}
+  .photo-scroll-item{width:260px;height:180px;}
+  .about{grid-template-columns:1fr;padding:3rem 1.25rem;}
+  .about-img-wrap img{min-height:260px;}
+  .about-img-wrap::after{display:none;}
+  .about-copy{padding:2.5rem 1.5rem;border-left:1px solid var(--border);border-top:none;}
+  .chalkboard{grid-template-columns:1fr 1fr;}
+  section{padding:3.5rem 1.25rem;}
+  .divider{margin:0 1.25rem;}
+  .events-grid{grid-template-columns:1fr;}
+  .loc-grid{grid-template-columns:1fr;}
+  .map-wrap{height:280px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/file_00000000c1a071fdbf97919f1097b206.png" alt="Baseline's Pub"></a>
+  <ul class="nav-links">
+    <li><a href="#events">Events</a></li>
+    <li><a href="#specials">Specials</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#location" class="nav-cta">Visit Us</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-frame"></div>
+  <div class="hero-content">
+    <div class="hero-badge">South Surrey · White Rock, BC</div>
+    <h1>Baseline's<br>Pub</h1>
+    <div class="hero-rule"><span class="hero-rule-icon">✦</span></div>
+    <div class="hero-sub">Pool · Darts · Keno · Cold Beer · Good Eats</div>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-rust">View Menu</a>
+      <a href="#location" class="btn-outline">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-inner">
+    <span>Free Pool Mondays</span><span>Wing Night Tuesdays — $0.69</span><span>Darts Tournament Wednesdays</span><span>Taco Night Thursdays — $3</span><span>Pitcher Specials Fridays — $18</span><span>Game Day Buckets Saturdays</span><span>Caesar Sundays — $6</span>
+    <span>Free Pool Mondays</span><span>Wing Night Tuesdays — $0.69</span><span>Darts Tournament Wednesdays</span><span>Taco Night Thursdays — $3</span><span>Pitcher Specials Fridays — $18</span><span>Game Day Buckets Saturdays</span><span>Caesar Sundays — $6</span>
+  </div>
+</div>
+
+<!-- HORIZONTAL PHOTO SCROLL -->
+<div class="photo-scroll-wrap">
+  <div class="photo-scroll-label">Inside the Pub</div>
+  <div class="photo-scroll">
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/wide_bar_shot.jpg" alt="Bar"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/top_seating_area.jpg" alt="Seating"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Pooltables1.jpg" alt="Pool tables"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Dart_board.jpg" alt="Darts"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Keno_pulltabs.jpg" alt="Keno"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/beer_glass.jpg" alt="Beer"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/ceaser1.jpg" alt="Caesar"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/mixed_drink.jpg" alt="Drinks"></div>
+    <div class="photo-scroll-item"><img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Guest_bartaps1.jpg" alt="Taps"></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="about">
+  <div class="about-img-wrap">
+    <img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Reg_bartaps2.jpg" alt="Bar taps">
+  </div>
+  <div class="about-copy">
+    <div class="sec-badge">The Pub</div>
+    <h2>Your Local Since Day One</h2>
+    <p>Baselines Pub is your go-to spot in South Surrey for drinks, games, and <strong>good times</strong>. We serve delicious food from the Sandcastle Grill kitchen right to your table.</p>
+    <p>Whether you're shooting pool, throwing darts, watching the game, or just here for a cold one — everyone's welcome at Baselines.</p>
+    <div class="chalkboard">
+      <div class="chalk-item"><div class="chalk-num">16</div><div class="chalk-lbl">Beer Taps</div></div>
+      <div class="chalk-item"><div class="chalk-num">2</div><div class="chalk-lbl">Pool Tables</div></div>
+      <div class="chalk-item"><div class="chalk-num">Daily</div><div class="chalk-lbl">Specials</div></div>
+      <div class="chalk-item"><div class="chalk-num">Live</div><div class="chalk-lbl">Sports</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="sec-title-wrap">
+    <div class="sec-badge">What's On</div>
+    <h2>Upcoming Events</h2>
+    <div class="sec-rule"><div class="sec-rule-dot"></div></div>
+  </div>
+  <div class="events-grid">
+    <div class="event-card">
+      <div class="ec-img">
+        <div class="ec-date-badge"><span class="month">Feb</span><span class="day">14</span></div>
+        <img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Pooltables1.jpg" alt="Pool tables">
+      </div>
+      <div class="ec-body">
+        <div class="ec-cat">Special Event</div>
+        <div class="ec-title">Valentine's Day Couples Pool Tournament</div>
+        <div class="ec-desc">Bring your partner for a fun couples pool tournament. Prizes for top 3 teams plus drink specials all night.</div>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="ec-img">
+        <div class="ec-date-badge"><span class="month">Feb</span><span class="day">21</span></div>
+        <img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/beer_glass.jpg" alt="Beer">
+      </div>
+      <div class="ec-body">
+        <div class="ec-cat">Beer Event</div>
+        <div class="ec-title">BC Craft Beer Tap Takeover</div>
+        <div class="ec-desc">All 16 taps featuring BC craft breweries. Meet the brewers, sample new releases, and enjoy special pricing.</div>
+      </div>
+    </div>
+    <div class="event-card">
+      <div class="ec-img">
+        <div class="ec-date-badge"><span class="month">Mar</span><span class="day">01</span></div>
+        <img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/Dart_board.jpg" alt="Darts">
+      </div>
+      <div class="ec-body">
+        <div class="ec-cat">Tournament</div>
+        <div class="ec-title">Monthly 8-Ball Pool League Kickoff</div>
+        <div class="ec-desc">First night of our monthly pool league. All skill levels welcome. Sign up at the bar or online.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SPECIALS -->
+<section id="specials">
+  <div class="sec-title-wrap">
+    <div class="sec-badge">Daily Deals</div>
+    <h2>Weekly Specials</h2>
+    <div class="sec-rule"><div class="sec-rule-dot"></div></div>
+  </div>
+  <div class="day-tabs">
+    <button class="day-tab" data-day="mon">Monday</button>
+    <button class="day-tab" data-day="tue">Tuesday</button>
+    <button class="day-tab" data-day="wed">Wednesday</button>
+    <button class="day-tab" data-day="thu">Thursday</button>
+    <button class="day-tab" data-day="fri">Friday</button>
+    <button class="day-tab" data-day="sat">Saturday</button>
+    <button class="day-tab" data-day="sun">Sunday</button>
+  </div>
+  <div class="specials-panel" id="specials-mon"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍕</div><div><div class="sc-name">Pizza &amp; Pints</div><div class="sc-price">$18</div></div></div><div class="sc-desc">Any large pizza plus a pint of draft beer. Perfect way to start the week.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🎱</div><div><div class="sc-name">Free Pool Night</div><div class="sc-price">All Day</div></div></div><div class="sc-desc">Both pool tables free to play all Monday. Just grab a table and rack 'em up.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-tue"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍗</div><div><div class="sc-name">Wing Night</div><div class="sc-price">$0.69/wing</div></div></div><div class="sc-desc">Our famous chicken wings at an unbeatable price. Choose from 12 signature sauces.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍺</div><div><div class="sc-name">Domestic Pints</div><div class="sc-price">$5.50</div></div></div><div class="sc-desc">All domestic draft beer on special. Pair perfectly with wings.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-wed"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🎯</div><div><div class="sc-name">Darts Tournament</div><div class="sc-price">7:00 PM</div></div></div><div class="sc-desc">Weekly dart tournament with prizes. Free to enter, sign-up starts at 6:30 PM.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍔</div><div><div class="sc-name">Burger &amp; Beer</div><div class="sc-price">$16</div></div></div><div class="sc-desc">Any burger from our menu plus a pint of domestic beer. Add premium toppings for $2.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-thu"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🌮</div><div><div class="sc-name">Taco Night</div><div class="sc-price">$3 each</div></div></div><div class="sc-desc">Chicken, beef, or veggie tacos. Minimum 3 per order. Fresh toppings bar included.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍹</div><div><div class="sc-name">Margarita Madness</div><div class="sc-price">$7</div></div></div><div class="sc-desc">Classic margaritas on special all night. Lime, strawberry, or mango flavors.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-fri"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍻</div><div><div class="sc-name">Pitcher Specials</div><div class="sc-price">$18</div></div></div><div class="sc-desc">60oz pitchers of select draft beers. Perfect for sharing with the crew.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🥃</div><div><div class="sc-name">Whiskey Flights</div><div class="sc-price">$22</div></div></div><div class="sc-desc">Sample 4 premium whiskeys. Our bartenders will guide you through the tasting.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-sat"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🏈</div><div><div class="sc-name">Game Day Buckets</div><div class="sc-price">$24</div></div></div><div class="sc-desc">5 bottles of domestic beer on ice. Available during all televised games.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍟</div><div><div class="sc-name">Loaded Nachos</div><div class="sc-price">$14</div></div></div><div class="sc-desc">Mountain of nachos with all the fixings. Easily feeds 2–3 people.</div></div>
+  </div></div>
+  <div class="specials-panel" id="specials-sun"><div class="specials-grid">
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🥞</div><div><div class="sc-name">Brunch Menu</div><div class="sc-price">11 AM – 3 PM</div></div></div><div class="sc-desc">Special brunch items including breakfast poutine, eggs benedict, and bottomless coffee.</div></div>
+    <div class="sc"><div class="sc-top"><div class="sc-icon">🍺</div><div><div class="sc-name">Caesar Sundays</div><div class="sc-price">$6</div></div></div><div class="sc-desc">Classic Caesars all day. Add bacon or shrimp for $3 extra.</div></div>
+  </div></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="sec-title-wrap">
+    <div class="sec-badge">Food &amp; Drink</div>
+    <h2>Full Menu</h2>
+    <div class="sec-rule"><div class="sec-rule-dot"></div></div>
+  </div>
+  <div class="menu-tabs">
+    <button class="menu-tab active" data-menu="apps">Appetizers</button>
+    <button class="menu-tab" data-menu="mains">Mains</button>
+    <button class="menu-tab" data-menu="burgers">Burgers</button>
+    <button class="menu-tab" data-menu="pizza">Pizza</button>
+    <button class="menu-tab" data-menu="sides">Sides</button>
+    <button class="menu-tab" data-menu="kids">Kids</button>
+  </div>
+  <div class="menu-section active" id="menu-apps">
+    <div class="menu-note">All menu items are prepared in the Sandcastle Grill kitchen and served to your table by our attentive pub staff.</div>
+    <div class="mcat"><div class="mcat-title">Shareables</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Chicken Wings</div><div class="mi-desc">1 lb of wings tossed in your choice of sauce: Honey Garlic, BBQ, Hot, Teriyaki, Salt & Pepper, or Dry Cajun</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Loaded Nachos</div><div class="mi-desc">Tortilla chips piled high with cheese, jalapeños, tomatoes, green onions, sour cream & salsa. Add chicken, beef or pulled pork</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Spinach & Artichoke Dip</div><div class="mi-desc">Creamy dip served with tortilla chips and fresh vegetables</div></div><div class="mi-price">$14</div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Tenders</div><div class="mi-desc">Hand-breaded tenders served with plum sauce or honey mustard</div></div><div class="mi-price">$14</div></div>
+      <div class="menu-item"><div><div class="mi-name">Calamari</div><div class="mi-desc">Lightly dusted and fried, served with tzatziki and lemon</div></div><div class="mi-price">$15</div></div>
+      <div class="menu-item"><div><div class="mi-name">Garlic Bread</div><div class="mi-desc">Toasted sourdough with garlic butter. Add cheese for $2</div></div><div class="mi-price">$8</div></div>
+      <div class="menu-item"><div><div class="mi-name">Mozzarella Sticks</div><div class="mi-desc">6 golden fried sticks served with marinara sauce</div></div><div class="mi-price">$12</div></div>
+      <div class="menu-item"><div><div class="mi-name">Potato Skins</div><div class="mi-desc">Loaded with cheese, bacon bits, and green onions, served with sour cream</div></div><div class="mi-price">$13</div></div>
+    </div></div>
+  </div>
+  <div class="menu-section" id="menu-mains">
+    <div class="menu-note">All sandwiches and wraps come with your choice of fries, salad, or soup.</div>
+    <div class="mcat"><div class="mcat-title">Sandwiches & Wraps</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Clubhouse Sandwich</div><div class="mi-desc">Triple-decker with turkey, bacon, lettuce, tomato, and mayo on toasted bread</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Pulled Pork Sandwich</div><div class="mi-desc">Slow-cooked pork with BBQ sauce and coleslaw on a brioche bun</div></div><div class="mi-price">$15</div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Caesar Wrap</div><div class="mi-desc">Grilled chicken, romaine, bacon, parmesan, and caesar dressing in a flour tortilla</div></div><div class="mi-price">$14</div></div>
+      <div class="menu-item"><div><div class="mi-name">Fish & Chips</div><div class="mi-desc">Beer-battered cod with fries, coleslaw, and tartar sauce</div></div><div class="mi-price">$17</div></div>
+      <div class="menu-item"><div><div class="mi-name">Steak Sandwich</div><div class="mi-desc">6oz sirloin on garlic toast with sautéed mushrooms and onions</div></div><div class="mi-price">$19</div></div>
+      <div class="menu-item"><div><div class="mi-name">BLT</div><div class="mi-desc">Bacon, lettuce, tomato, and mayo on toasted sourdough</div></div><div class="mi-price">$12</div></div>
+    </div></div>
+    <div class="mcat"><div class="mcat-title">Salads</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Caesar Salad</div><div class="mi-desc">Crisp romaine, bacon bits, parmesan, croutons. Add grilled chicken or shrimp</div></div><div class="mi-price">$12</div></div>
+      <div class="menu-item"><div><div class="mi-name">House Salad</div><div class="mi-desc">Mixed greens, tomatoes, cucumber, carrots, choice of dressing</div></div><div class="mi-price">$10</div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Cobb Salad</div><div class="mi-desc">Grilled chicken, bacon, egg, avocado, blue cheese, tomatoes on mixed greens</div></div><div class="mi-price">$16</div></div>
+    </div></div>
+  </div>
+  <div class="menu-section" id="menu-burgers">
+    <div class="menu-note">All burgers are 6oz fresh beef patties served on a brioche bun with lettuce, tomato, and pickle. Comes with fries.</div>
+    <div class="mcat"><div class="mcat-title">Burgers</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Baseline Burger</div><div class="mi-desc">Classic cheeseburger with your choice of cheese</div></div><div class="mi-price">$14</div></div>
+      <div class="menu-item"><div><div class="mi-name">Bacon Cheeseburger</div><div class="mi-desc">Topped with crispy bacon and cheddar cheese</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Mushroom Swiss Burger</div><div class="mi-desc">Sautéed mushrooms and Swiss cheese</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">BBQ Burger</div><div class="mi-desc">BBQ sauce, bacon, cheddar, and crispy onion rings</div></div><div class="mi-price">$17</div></div>
+      <div class="menu-item"><div><div class="mi-name">Veggie Burger</div><div class="mi-desc">House-made vegetable patty with all the fixings</div></div><div class="mi-price">$14</div></div>
+      <div class="menu-item"><div><div class="mi-name">Double Baseline</div><div class="mi-desc">Two patties, double cheese, double the flavor</div></div><div class="mi-price">$18</div></div>
+    </div></div>
+  </div>
+  <div class="menu-section" id="menu-pizza">
+    <div class="menu-note">All pizzas are 12" and made fresh to order. Add extra toppings for $2 each.</div>
+    <div class="mcat"><div class="mcat-title">Pizzas</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Pepperoni</div><div class="mi-desc">Classic pepperoni and mozzarella</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Hawaiian</div><div class="mi-desc">Ham, pineapple, and mozzarella</div></div><div class="mi-price">$16</div></div>
+      <div class="menu-item"><div><div class="mi-name">Meat Lovers</div><div class="mi-desc">Pepperoni, ham, bacon, and Italian sausage</div></div><div class="mi-price">$19</div></div>
+      <div class="menu-item"><div><div class="mi-name">Veggie</div><div class="mi-desc">Mushrooms, peppers, onions, tomatoes, and olives</div></div><div class="mi-price">$17</div></div>
+      <div class="menu-item"><div><div class="mi-name">BBQ Chicken</div><div class="mi-desc">BBQ sauce base, chicken, red onion, and cilantro</div></div><div class="mi-price">$18</div></div>
+      <div class="menu-item"><div><div class="mi-name">Create Your Own</div><div class="mi-desc">Cheese pizza with your choice of toppings</div></div><div class="mi-price">$14</div></div>
+    </div></div>
+  </div>
+  <div class="menu-section" id="menu-sides">
+    <div class="mcat"><div class="mcat-title">Sides</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Fries</div><div class="mi-desc">Crispy golden fries</div></div><div class="mi-price">$6</div></div>
+      <div class="menu-item"><div><div class="mi-name">Poutine</div><div class="mi-desc">Fries, gravy, and cheese curds</div></div><div class="mi-price">$10</div></div>
+      <div class="menu-item"><div><div class="mi-name">Onion Rings</div><div class="mi-desc">Thick-cut and beer-battered</div></div><div class="mi-price">$8</div></div>
+      <div class="menu-item"><div><div class="mi-name">Sweet Potato Fries</div><div class="mi-desc">Served with chipotle mayo</div></div><div class="mi-price">$7</div></div>
+      <div class="menu-item"><div><div class="mi-name">Coleslaw</div><div class="mi-desc">Fresh and creamy</div></div><div class="mi-price">$5</div></div>
+      <div class="menu-item"><div><div class="mi-name">Side Salad</div><div class="mi-desc">Mixed greens with choice of dressing</div></div><div class="mi-price">$6</div></div>
+    </div></div>
+  </div>
+  <div class="menu-section" id="menu-kids">
+    <div class="menu-note">All kids meals include a small fountain drink and a side of Oreo Cookies.</div>
+    <div class="mcat"><div class="mcat-title">Kids Menu</div><div class="menu-items">
+      <div class="menu-item"><div><div class="mi-name">Chicken Tenders & Fries</div><div class="mi-desc">Kids portion with your choice of dipping sauce</div></div><div class="mi-price">$8</div></div>
+      <div class="menu-item"><div><div class="mi-name">Mini Cheeseburgers & Fries</div><div class="mi-desc">2 miniature cheeseburgers with ketchup</div></div><div class="mi-price">$8</div></div>
+      <div class="menu-item"><div><div class="mi-name">Chicken Quesadilla & Fries</div><div class="mi-desc">Half sized quesadilla with chicken and cheese</div></div><div class="mi-price">$10</div></div>
+      <div class="menu-item"><div><div class="mi-name">Mini Corn Dogs & Fries</div><div class="mi-desc">2 mini classic corn dogs</div></div><div class="mi-price">$9</div></div>
+      <div class="menu-item"><div><div class="mi-name">Hot Dog & Fries</div><div class="mi-desc">Kids sized, served plain</div></div><div class="mi-price">$6</div></div>
+      <div class="menu-item"><div><div class="mi-name">Grilled Cheese & Fries</div><div class="mi-desc">Kids sized on sourdough bread</div></div><div class="mi-price">$6</div></div>
+      <div class="menu-item"><div><div class="mi-name">Mini Poutine</div><div class="mi-desc">Fries, gravy and cheese curds</div></div><div class="mi-price">$9</div></div>
+      <div class="menu-item"><div><div class="mi-name">Veggies & Dip</div><div class="mi-desc">Seasonal vegetables with ranch dip</div></div><div class="mi-price">$8</div></div>
+    </div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="sec-title-wrap">
+    <div class="sec-badge">Find Us</div>
+    <h2>Come On In</h2>
+    <div class="sec-rule"><div class="sec-rule-dot"></div></div>
+  </div>
+  <div class="loc-grid">
+    <div>
+      <div class="loc-block"><div class="loc-label">Address</div><div class="loc-text">Suite 100 — 1938 152nd Street<br>Surrey, BC V4A 4N6<br><a href="https://maps.google.com/?q=1938+152nd+Street+Surrey+BC" target="_blank">Get Directions →</a></div></div>
+      <div class="loc-block"><div class="loc-label">Hours</div><div class="hours-tbl">
+        <div class="hours-day">Mon — Tue</div><div class="hours-time">11:30 AM — Midnight</div>
+        <div class="hours-day">Wednesday</div><div class="hours-time">11:30 AM — 1:00 AM</div>
+        <div class="hours-day">Thursday</div><div class="hours-time">11:30 AM — 12:00 AM</div>
+        <div class="hours-day">Fri — Sat</div><div class="hours-time">11:30 AM — 2:00 AM</div>
+        <div class="hours-day">Sunday</div><div class="hours-time">11:00 AM — Midnight</div>
+      </div></div>
+      <div class="loc-block"><div class="loc-label">Contact</div><div class="loc-text"><a href="tel:+16045352685">📞 (604) 535-2685</a><br><a href="mailto:info@baselinespub.ca">info@baselinespub.ca</a></div></div>
+    </div>
+    <div class="map-wrap"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2614.5!2d-122.8456!3d49.0456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5485d8a8b8b8b8b8%3A0x0!2s1938+152+St%2C+Surrey%2C+BC+V4A+4N6!5e0!3m2!1sen!2sca!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map"></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <img src="https://raw.githubusercontent.com/StackwellDigital/baselinespub/main/file_00000000c1a071fdbf97919f1097b206.png" alt="Baseline's Pub">
+  <div class="footer-rule"><div class="footer-diamond"></div></div>
+  <ul class="footer-links">
+    <li><a href="#events">Events</a></li><li><a href="#specials">Specials</a></li><li><a href="#menu">Menu</a></li><li><a href="#location">Location</a></li>
+  </ul>
+  <div class="footer-copy">© 2025 Baseline's Pub · South Surrey, BC</div>
+</footer>
+
+<script>
+const today=new Date().getDay();const dayMap=['sun','mon','tue','wed','thu','fri','sat'];const todayKey=dayMap[today];
+const dayTabs=document.querySelectorAll('.day-tab');const panels=document.querySelectorAll('.specials-panel');
+function setDay(d){dayTabs.forEach(t=>t.classList.remove('active'));panels.forEach(p=>p.classList.remove('active'));const t=document.querySelector(`[data-day="${d}"]`);const p=document.getElementById(`specials-${d}`);if(t)t.classList.add('active');if(p)p.classList.add('active');}
+dayTabs.forEach(t=>t.addEventListener('click',()=>setDay(t.dataset.day)));setDay(todayKey);
+const mTabs=document.querySelectorAll('.menu-tab');const mSecs=document.querySelectorAll('.menu-section');
+mTabs.forEach(t=>t.addEventListener('click',()=>{mTabs.forEach(x=>x.classList.remove('active'));mSecs.forEach(s=>s.classList.remove('active'));t.classList.add('active');document.getElementById(`menu-${t.dataset.menu}`).classList.add('active');}));
+</script>
+</body>
+</html>
